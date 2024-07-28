@@ -19,11 +19,10 @@ jobs:
     strategy:
       matrix:
         arch:
-          - aarch64
           - arm
+          - aarch64
           - i686
           - x86_64
-    if: github.repository == 'termux/termux-packages'
     steps:
       - name: Git clone
         uses: actions/checkout@v4

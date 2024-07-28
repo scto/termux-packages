@@ -1,2 +1,2 @@
-#!/data/data/com.termux/files/usr/bin/sh
-export PATH=/data/data/com.termux/files/usr/opt/rustc-nightly/bin:$PATH
+#!/data/data/com.icst.android.appstudio/files/usr/bin/sh
+export PATH=/data/data/com.icst.android.appstudio/files/usr/opt/rustc-nightly/bin:$PATH
