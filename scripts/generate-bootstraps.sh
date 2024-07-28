@@ -19,12 +19,11 @@ BOOTSTRAP_ANDROID10_COMPATIBLE=false
 TERMUX_ARCHITECTURES=("aarch64" "arm" "i686" "x86_64")
 
 # The supported termux package managers.
-TERMUX_PACKAGE_MANAGERS=("apt" "pacman")
+TERMUX_PACKAGE_MANAGERS=("apt")
 
 # The repository base urls mapping for package managers.
 declare -A REPO_BASE_URLS=(
-	["apt"]="https://packages-cf.termux.dev/apt/termux-main"
-	["pacman"]="https://service.termux-pacman.dev/main"
+	["apt"]="https://devandroidcoder.github.io/aastp/"
 )
 
 # The package manager that will be installed in bootstrap.
@@ -457,8 +456,10 @@ for package_arch in "${TERMUX_ARCHITECTURES[@]}"; do
 	pull_package dash
 	pull_package diffutils
 	pull_package findutils
+	pull_package openjdk-17
 	pull_package gawk
 	pull_package grep
+    pull_package git
 	pull_package gzip
 	pull_package less
 	pull_package procps

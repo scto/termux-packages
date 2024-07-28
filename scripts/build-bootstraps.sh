@@ -14,7 +14,6 @@ set -e
 
 TERMUX_SCRIPTDIR=$(realpath "$(dirname "$0")/../")
 . $(dirname "$(realpath "$0")")/properties.sh
-
 BOOTSTRAP_TMPDIR=$(mktemp -d "${TMPDIR:-/tmp}/bootstrap-tmp.XXXXXXXX")
 
 # By default, bootstrap archives are compatible with Android >=7.0
@@ -201,7 +200,8 @@ add_termux_bootstrap_second_stage_files() {
 		-e "s|@TERMUX_BOOTSTRAP_CONFIG_DIR_PATH@|${TERMUX_BOOTSTRAP_CONFIG_DIR_PATH}|g" \
 		-e "s|@TERMUX_PACKAGE_MANAGER@|${TERMUX_PACKAGE_MANAGER}|g" \
 		-e "s|@TERMUX_PACKAGE_ARCH@|${package_arch}|g" \
-		"$(dirname "$(realpath "$0")")/bootstrap/termux-bootstrap-second-stage.sh" \
+		"$(dirname "$(realpath "$TERMUX_SCRIPTDIR/scripts")")/scripts/bootstrap/termux-bootstrap-second-stage.sh"
+#		"$(dirname "$(realpath "$0")")/bootstrap/termux-bootstrap-second-stage.sh" \
 		> "${BOOTSTRAP_ROOTFS}/${TERMUX_BOOTSTRAP_CONFIG_DIR_PATH}/termux-bootstrap-second-stage.sh"
 	chmod 700 "${BOOTSTRAP_ROOTFS}/${TERMUX_BOOTSTRAP_CONFIG_DIR_PATH}/termux-bootstrap-second-stage.sh"
 
@@ -293,7 +293,7 @@ Available command_options:
 
 
 The package name/prefix that the bootstrap is built for is defined by
-TERMUX_APP_PACKAGE in 'scrips/properties.sh'. It defaults to 'com.termux'.
+TERMUX_APP_PACKAGE in 'scrips/properties.sh'. It defaults to 'com.icst.android.appstudio'.
 If package name is changed, make sure to run
 `./scripts/run-docker.sh ./clean.sh` or pass '-f' to force rebuild of packages.
 
