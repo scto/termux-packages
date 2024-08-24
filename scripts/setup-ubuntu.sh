@@ -348,4 +348,4 @@ echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' | $SUDO tee -a /etc/default/
 . $(dirname "$(realpath "$0")")/properties.sh
 $SUDO mkdir -p $TERMUX_PREFIX
 $SUDO chown -R $(whoami) /data
-$SUDO ln -sf /data/data/com.icst.android.appstudio/files/usr/opt/bionic-host /system
+$SUDO ln -sf /data/data/com.scto.android.codestudio/files/usr/opt/bionic-host /system
